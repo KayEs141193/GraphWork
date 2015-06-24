@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Collections;
 
-/*
+/**
 
 Simple Adjacency Matrix Implementation. 0-based Indexing of the Nodes.
 Naive Implementation for Affinity Calculation. Doesn't divide the graph into smaller sub graphs.
@@ -19,17 +19,33 @@ Decide whether to use sparse data structures on the basis of average out-degree.
 Discuss about the current graph implementation in Java
 Efficient Division into sub-graph O(E+V)
 
+*@author kushals
 
 */
+
+
 
 class GraphObject{
 	
 	private
-		ArrayList<ArrayList<Double>> matrix; // O(N^2) space complexity
+		/**
+		 * Adjacency matrix to represent the graph
+		 */
+	
+		ArrayList<ArrayList<Double>> matrix;
+		/**
+		 * Number of nodes in the graph
+		 */
+	
 		int nodes;
 	public
+	/**
+	 * Constructor to construct a node*node matrix to store the graph
+	 * @param nodes
+	 */
+	
 		GraphObject(int nodes){
-		// O(N^2) implementation as all the weights are being initialized to 0
+		
 			matrix= new ArrayList<ArrayList<Double>>(nodes);
 			this.nodes=nodes;
 			
@@ -40,17 +56,38 @@ class GraphObject{
 			}	
 		}
 	
+	/**
+	 * 
+	 * Set Edge value
+	 * 
+	 * @param src
+	 * @param dest
+	 * @param val
+	 */
+	
 		void setEdge(int src, int dest, double val){
-			//O(1) time complexity
+			
 			matrix.get(src).set(dest, val);}
 
+		/**
+		 * Get the edge value.
+		 * @param src
+		 * @param dest
+		 * @return
+		 */
+		
 		double edgeVal(int src,int dest){
-			//O(1) time complexity
+			
 			return matrix.get(src).get(dest);
 		}
 		
+		/**
+		 * Get the number of nodes in the graph.
+		 * @return
+		 */
+		
 		int nodeNo(){
-			//O(1) time complexity
+			
 			return nodes;
 		}
 

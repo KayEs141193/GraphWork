@@ -3,7 +3,7 @@ import java.util.Map;
 import java.util.Set;
 
 
-/*
+/**
  
  SparseArray implementation. 
  - Remove methods not implemented completely because of little difficulty in modifying 
@@ -15,11 +15,19 @@ import java.util.Set;
 public class SparseArray {
 	
 	private
-		
+		/**
+		 * The size of the sparse array
+		 */
 		int size;
+		/**
+		 * A map object to implement the sparse array
+		 */
 		Map<Integer,Double> table;
 		
 	public
+		/**
+		 * Constructor to create a sparse array
+		 */
 	
 		SparseArray(){
 			
@@ -27,6 +35,12 @@ public class SparseArray {
 			table= new HashMap<Integer,Double>();
 		
 		}
+	
+		/**
+		 * Add an element to the sparse array at the give position
+		 * @param index
+		 * @param element
+		 */
 
 		void add(int index,double element){
 			
@@ -37,6 +51,11 @@ public class SparseArray {
 			
 		}
 
+		/**
+		 * Add the element at the back of the array
+		 * @param element
+		 */
+		
 		void add(double element){
 			
 			table.put(size, element);
@@ -44,6 +63,12 @@ public class SparseArray {
 			
 		}
 
+		/**
+		 * Check if the array contains the give element
+		 * @param element
+		 * @return
+		 */
+		
 		boolean contains(double element){
 			
 			if(table.containsValue(element))
@@ -52,6 +77,11 @@ public class SparseArray {
 			return false;
 		}
 
+		/**
+		 * Get the element at the give index
+		 * @param index
+		 * @return
+		 */
 		
 		double get(int index){
 			
@@ -66,6 +96,11 @@ public class SparseArray {
 			return 0.0;
 		}
 
+		/**
+		 * Check if the array is empty
+		 * @return
+		 */
+		
 		boolean isEmpty(){
 			
 			if(this.size==0)
@@ -73,52 +108,12 @@ public class SparseArray {
 			return false;
 			
 		}
-
-//		boolean remove(T element){
-//			
-//			for(int i=0;i<arr.size();i++){
-//				
-//				if(arr.get(i)==element){
-//					
-//					Set<Integer> keyset=table.keySet();
-//					
-//					Integer keyVal=0;
-//					
-//					for(Integer key:keyset){
-//						
-//						if(table.get(key)==i){
-//							keyVal=key;
-//							keyset.remove(key);
-//							arr.remove(i);
-//							break;
-//							
-//						}
-//						
-//					}
-//					
-//					for(Integer key:keyset){
-//						
-//						if(table.get(key)>keyVal){
-//							
-//							
-//							
-//						}
-//						
-//					}
-//					
-//					return true;
-//				}
-//				
-//			}
-//			
-//			return false;
-//		}
-//		
-//		boolean remove(int pos){
-//			
-//			return false;
-//			
-//		}
+		
+		/**
+		 * Set the value of the element at the give position
+		 * @param pos
+		 * @param element
+		 */
 		
 		void set(int pos,double element){
 			
@@ -127,15 +122,25 @@ public class SparseArray {
 			
 		}
 		
+		/**
+		 * Get the size of the array
+		 * @return
+		 */
+		
 		int size(){
 			
 			return size;
 			
 		}
 		
+		/**
+		 * Get the keyset associated with sparse array
+		 * @return
+		 */
+		
 		Set<Integer> getKeySet(){
 			
 			return table.keySet();
 		}
 		
-}
+}	

@@ -2,7 +2,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Set;
 
-/*
+/**
 
 Simple Adjacency Matrix Implementation Using SparseArray. 0-based Indexing of the Nodes.
 Naive Implementation for Affinity Calculation. Doesn't divide the graph into smaller sub graphs.
@@ -33,13 +33,22 @@ public class GraphObjectSparse implements Serializable{
 
 
 	private
-
-	ArrayList<SparseArray> matrix; // O(E) space complexity
+	/**
+	 * A sparse matrix made up of sparse array to store the graph.
+	 */
+	ArrayList<SparseArray> matrix; 
+	/**
+	 * NUmber nodes in the graph
+	 */
 	int nodes;
 
 	public
+	/**
+	 * Construct a sparse matrix with the given number of nodes
+	 * @param nodes
+	 */
 	GraphObjectSparse(int nodes){
-		// O(N) implementation as no weight initialization required
+		
 		matrix= new ArrayList<SparseArray>(nodes);
 
 		for(int i=0;i<nodes;i++)
@@ -48,21 +57,46 @@ public class GraphObjectSparse implements Serializable{
 		this.nodes=nodes;				
 	}
 
+	/**
+	 * Set the edge value
+	 * @param src
+	 * @param dest
+	 * @param val
+	 */
+	
 	void setEdge(int src, int dest, double val){
 		//O(1) time complexity
 		matrix.get(src).add(dest, val);
 	}
 
+	/**
+	 * Get the edge value
+	 * @param src
+	 * @param dest
+	 * @return
+	 */
+	
 	double getEdge(int src,int dest){
 		//O(1) time complexity
 		return (matrix.get(src)).get(dest);
 	}
 
+	/**
+	 * Get the number of nodes in the graph
+	 * @return
+	 */
+	
 	int nodeNo(){
-		//O(1) time complexity
+
 		return nodes;
 	}
 
+	/**
+	 * Get the KeySet of the sparse array i.e set corresponding to the give node
+	 * @param node
+	 * @return
+	 */
+	
 	Set<Integer> getKeySet(int node){
 
 		return matrix.get(node).getKeySet();
