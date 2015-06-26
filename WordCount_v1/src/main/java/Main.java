@@ -20,9 +20,10 @@ public class Main {
 		job.setReducerClass(ReduceWords.class);
 		job.setOutputKeyClass(Text.class);
 		job.setOutputValueClass(IntWritable.class);
-		FileInputFormat.addInputPath(job,new Path(""));
-		FileOutputFormat.setOutputPath(job, new Path(""));
+		FileInputFormat.addInputPath(job,new Path("./input.txt"));
+		FileOutputFormat.setOutputPath(job, new Path("./output.txt"));
 		System.exit(job.waitForCompletion(true)?0:1);
+		
 		
 	}
 	
