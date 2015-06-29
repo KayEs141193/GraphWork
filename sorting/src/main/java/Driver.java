@@ -17,6 +17,7 @@ public class Driver {
 		Job job = Job.getInstance(conf, "Sort WordCount");
 		
 		job.setJarByClass(SortedArrayWritable.class);
+		job.setNumReduceTasks(1);
 		
 		job.setMapperClass(SortMap.class);
 		job.setReducerClass(SortRed.class);
