@@ -6,7 +6,6 @@ import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.NullWritable;
-import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.input.KeyValueTextInputFormat;
@@ -22,6 +21,7 @@ public class driver {
 		
 		
 		Job job = Job.getInstance(conf,"Total Word Count");
+		job.setJarByClass(driver.class);
 		
 		job.setMapperClass(mapp.class);
 		job.setCombinerClass(redd.class);
@@ -33,8 +33,8 @@ public class driver {
 		job.setMapOutputKeyClass(NullWritable.class);
 		job.setMapOutputValueClass(IntWritable.class);
 		
-		job.setOutputKeyClass(Text.class);
-		job.setOutputValueClass(Text.class);
+		job.setOutputKeyClass(NullWritable.class);
+		job.setOutputValueClass(IntWritable.class);
 		
 		job.setOutputFormatClass(TextOutputFormat.class);
 		FileOutputFormat.setOutputPath(job, new Path(opPath));

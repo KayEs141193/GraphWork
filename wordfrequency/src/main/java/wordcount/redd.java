@@ -6,9 +6,16 @@ import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Reducer;
 
-public class redd extends Reducer<Text,IntWritable,Text,Text>{
+public class redd extends Reducer<Text,IntWritable,Text,IntWritable>{
 
 	private IntWritable res=new IntWritable();
+	
+	@Override
+	public void setup(Context context){
+		
+		System.out.println("Reduction Begins.");
+		
+	}
 	
 	@Override
 	public void reduce(Text key,Iterable<IntWritable> values,Context context) throws IOException, InterruptedException{
@@ -23,7 +30,7 @@ public class redd extends Reducer<Text,IntWritable,Text,Text>{
 		
 		res.set(sum);
 		
-		context.write(key,new Text(res.toString()));
+		context.write(key,res);
 		
 	}
 	

@@ -22,6 +22,7 @@ public class driver {
 		conf.set("docName", docName);
 		
 		Job job = Job.getInstance(conf,"Word Count");
+		job.setJarByClass(driver.class);
 		
 		job.setMapperClass(mapp.class);
 		job.setCombinerClass(redd.class);
@@ -30,11 +31,10 @@ public class driver {
 		FileInputFormat.addInputPath(job, new Path(ipPath));
 		job.setInputFormatClass(TextInputFormat.class);
 		
+		job.setOutputKeyClass(Text.class);
+		job.setOutputValueClass(IntWritable.class);
 		job.setMapOutputKeyClass(Text.class);
 		job.setMapOutputValueClass(IntWritable.class);
-		
-		job.setOutputKeyClass(Text.class);
-		job.setOutputValueClass(Text.class);
 		
 		job.setOutputFormatClass(TextOutputFormat.class);
 		FileOutputFormat.setOutputPath(job, new Path(opPath));
@@ -43,8 +43,9 @@ public class driver {
 		
 	}
 	
-	public static void main(String[] args){
+	public static void main(String[] args) throws ClassNotFoundException, IOException, InterruptedException{
 		
+		getJob("doc1","hdfs://localhost:9000/kushals/tfidf/doc1.txt","hdfs://localhost:9000/kushals/tfidf/tempop").waitForCompletion(true);
 		
 	}
 	

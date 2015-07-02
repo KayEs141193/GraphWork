@@ -19,6 +19,7 @@ public class driver {
 		Configuration conf = new Configuration();
 		conf.set("totalPath", totalPath);
 		Job job = Job.getInstance(conf,"word freq");
+		job.setJarByClass(driver.class);
 		job.setNumReduceTasks(0);
 		
 		job.setMapperClass(mapp.class);

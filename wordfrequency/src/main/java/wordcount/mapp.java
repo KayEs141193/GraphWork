@@ -15,6 +15,7 @@ public class mapp extends Mapper<Object,Text,Text,IntWritable>{
 	@Override
 	public void setup(Context context){
 		
+		System.out.println("WC Mapping");
 		docName=context.getConfiguration().get("docName");
 		
 	}
@@ -32,6 +33,10 @@ public class mapp extends Mapper<Object,Text,Text,IntWritable>{
 		
 	}
 	
-	
-	
+	@Override
+	public void cleanup(Context context){
+		
+		System.out.println("MAPPING DONE.");
+		
+	}
 }
