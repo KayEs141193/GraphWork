@@ -1,0 +1,9 @@
+Configuration:
+
+Two configuration files namely:
+
+1. ipConf
+2. opConf
+
+are required in the same folder as the JAR file.
+Both files are CSV, specifying the required configuration paths and settings.
