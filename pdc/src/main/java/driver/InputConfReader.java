@@ -12,7 +12,7 @@ public class InputConfReader {
 	
 	public InputConfReader() throws FileNotFoundException{
 		
-		reader = new CSVReader(new FileReader("./ipConf.csv"));
+		reader = new CSVReader(new FileReader("./TestFiles/ipConf.csv"));
 		
 	}
 	

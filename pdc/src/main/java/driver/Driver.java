@@ -21,13 +21,19 @@ public class Driver {
 		
 		Iterator<String[]> opConf=ocr.getIterator();
 		
-		String opPath=opConf.next()[1];
-		String[] opFormat=opConf.next();
+		String opPath=opConf.next()[2];
+		String[] opFormat=opConf.next();	
+		
+		String opFormatTemp="";
+		
+		for(int i=0;i<opFormat.length;i++)
+			opFormatTemp+=(","+opFormat[i]);
 		
 		Iterator<String[]> databases=icr.getIterator();
 		
 		mywriter=new MyWriter(opPath);
 		
+		mywriter.write(opFormatTemp.substring(1));
 		
 		while (databases.hasNext()){
 			
@@ -40,7 +46,8 @@ public class Driver {
 			while(record!=null){
 				
 				record=me.nextRecord();
-				mywriter.write(record);
+				if(record!=null)
+					mywriter.write(record.replace("\n", ""));
 			
 			}
 			

@@ -12,7 +12,7 @@ public class OutputConfReader {
 	
 	public OutputConfReader() throws FileNotFoundException{
 		
-		reader = new CSVReader(new FileReader("./opConf.csv"));
+		reader = new CSVReader(new FileReader("./TestFiles/opConf.csv"));
 		
 	}
 	

@@ -36,6 +36,7 @@ public class MyCSVExtractor implements MyExtractor{
 			
 			if(mapParser.hasKey(el)){
 				
+				//System.out.println(mapParser.hasKey(el));
 				res+=row[map.get(mapParser.getVal(el))];
 				
 			}

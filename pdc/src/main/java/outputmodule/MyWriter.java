@@ -9,13 +9,14 @@ public class MyWriter {
 	public MyWriter(String opPath) throws IOException{
 		
 		fw=new FileWriter(opPath);
+		//fw.write("TEsting\n");
 		
 	}
 	
 	public void write(String record) throws IOException{
-		
-		fw.write(record+"\n");
-		
+				
+				fw.write(record+"\n");
+
 	}
 	
 	public void close() throws IOException{

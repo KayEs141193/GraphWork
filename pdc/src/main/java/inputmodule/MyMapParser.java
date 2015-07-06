@@ -18,8 +18,15 @@ public class MyMapParser {
 		
 		List<String[]> itr = mapparser.readAll();
 		
-		for(String[] i:itr)			
-			map.put(i[0], i[1]);
+		for(String[] i:itr){
+			
+			if(i.length==2){
+				if(i[1].length()>0)
+					map.put(i[0], i[1]);
+				
+			}
+			
+		}	
 		
 		mapparser.close();
 		
