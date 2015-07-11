@@ -39,16 +39,18 @@ public class Driver {
 			
 			String[] db=databases.next();
 			String dbName=db[0],dbType=db[1],dbPath=db[2],mapPath=db[3];
-			
+			System.out.println(dbName);
 			MyExtractor me = CreateExtractor.get(dbType,dbPath,mapPath,opFormat);
 			String record=me.nextRecord();
 			
 			while(record!=null){
 				
 				record=me.nextRecord();
-				if(record!=null)
+				if(record!=null){
+					
 					mywriter.write(record.replace("\n", ""));
-			
+				
+				}
 			}
 			
 		}
