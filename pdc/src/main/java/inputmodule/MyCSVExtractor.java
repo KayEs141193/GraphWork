@@ -27,7 +27,7 @@ public class MyCSVExtractor implements MyExtractor{
 	public String nextRecord() throws IOException{
 		
 		String[] row=null;
-		String res="";
+		String res="\"";
 		
 		if((row=csvParser.readNext())==null)
 			return null;
@@ -41,11 +41,11 @@ public class MyCSVExtractor implements MyExtractor{
 				
 			}
 			
-			res+=",";
+			res+="\",\"";
 			
 		}
 		
-		return res.substring(0,res.length()-1);
+		return res.substring(0,res.length()-2);
 		
 	}
 	

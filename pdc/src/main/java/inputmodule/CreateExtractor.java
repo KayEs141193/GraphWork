@@ -8,8 +8,8 @@ public class CreateExtractor {
 		
 		MyExtractor obj;
 		
-		if(dbType.compareToIgnoreCase("XML")==0)
-			obj=new MyXMLExtractor();
+		if(dbType.compareToIgnoreCase("JIRA")==0)
+			obj=new MyQueerJIRAExtractor(dbPath,mapPath,opFormat);
 		else
 			obj=new MyCSVExtractor(dbPath,mapPath,opFormat);
 		
